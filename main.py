@@ -70,7 +70,6 @@ def create_title_for_post():
     existing = os.path.exists(titles_path)
     if(not existing):
         os.makedirs(titles_path)
-    post_number = input("\nEnter the number of your post: ")
     title_choice = input("\nEnter the title of your post: ")
     if(validate_title_length(title_choice)):
         new_folder_name = get_current_date()
@@ -79,7 +78,6 @@ def create_title_for_post():
         for i in range(len(languages)):
             img = Image.open("languages/" + languages[i] + ".png")
             draw_title(img, title)
-            img.save("titles/" + str(new_folder_name) + "/title-" + post_number +
-                        "-" + languages[i] + ".png")
+            img.save("titles/" + str(new_folder_name) + "/title-" + languages[i] + ".png")
             
 create_title_for_post()
