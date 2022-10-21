@@ -5,7 +5,7 @@ import os
 # constants
 languages = ["c", "cpp", "java", "python"]
 titles_path = "titles/"
-font_size = 100 # 55
+font_size = 75 # 55
 font_family = "Post.otf"
 top_word_position = 5
 middle_word_position = 4
@@ -54,6 +54,18 @@ def draw_this(img, text, position):
     stroke_fill="black")
 
 
+def draw_title(img, title):
+    splited_title = ''.join(title).split("  ")
+    length = len(splited_title)
+    if(length == 1):
+        draw_this(img, splited_title[0], middle_word_position)
+    elif(length == 2):
+        draw_this(img, splited_title[0], top_word_position)
+        draw_this(img, splited_title[1], bottom_word_position)
+    else:
+        print_invalid()
+        return
+
 def create_title_for_post():
     existing = os.path.exists(titles_path)
     if(not existing):
@@ -66,8 +78,7 @@ def create_title_for_post():
         title = validate_title_length(title_choice)
         for i in range(len(languages)):
             img = Image.open("languages/" + languages[i] + ".png")
-            draw_this(img, "ADDING", top_word_position)
-            draw_this(img, "NUMBERS", bottom_word_position)
+            draw_title(img, title)
             img.save("titles/" + str(new_folder_name) + "/title-" + post_number +
                         "-" + languages[i] + ".png")
             
