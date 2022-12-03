@@ -3,10 +3,10 @@ from datetime import datetime
 import os 
 
 # constants
-languages = ["c", "cpp", "java", "python"]
+languages = ["c", "cpp", "cs", "go", "java", "javascript", "python", "tips"]
 titles_path = "titles/"
-font_size = 75 # 55
-font_family = "Post.otf"
+font_size = 100 # 55
+font_family = "Archive.otf"
 top_word_position = 5
 middle_word_position = 4
 bottom_word_position = 3
@@ -23,10 +23,10 @@ def print_invalid():
     print("\n! ! !\tInvalid Input\t! ! !")
 
 def validate_title_length(title_choice):
-    if(len(title_choice) > 11 or len(title_choice) <= 2):
-        print_invalid()
-        print("\nTitle Is Too Long\n")
-        return False
+    # if(len(title_choice) > 11 or len(title_choice) <= 2):
+    #     print_invalid()
+    #     print("\nTitle Is Too Long\n")
+    #     return False
     title_split = title_choice.split(" ")
     if(len(title_split) == 1):
         title = " ".join(title_split[0].upper())
@@ -42,7 +42,6 @@ def validate_title_length(title_choice):
 def count_folders_in(path):
     return (len(next(os.walk(path))[1]))
 
-
 def draw_this(img, text, position):
     I1 = ImageDraw.Draw(img)
     W, H = (img.width, img.height)
@@ -52,6 +51,9 @@ def draw_this(img, text, position):
     I1.text(((W-w)/2, (H-h)/int(position)), text,
     font=myFont,  fill=(0, 0, 0),
     stroke_fill="black")
+
+
+
 
 
 def draw_title(img, title):
