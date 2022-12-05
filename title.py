@@ -19,10 +19,6 @@ def print_invalid():
     print("\nInvalid Input")
 
 def validate_title_length(title_choice):
-    # if(len(title_choice) > 11 or len(title_choice) <= 2):
-    #     print_invalid()
-    #     print("\nTitle Is Too Long\n")
-    #     return False
     title_split = title_choice.split(" ")
     if(len(title_split) == 1):
         title = " ".join(title_split[0].upper())
@@ -54,7 +50,7 @@ def draw_title(img, title):
         draw_this(img, splited_title[0], top_word_position)
         draw_this(img, splited_title[1], bottom_word_position)
     else:
-        print_invalid()
+        draw_this(img, splited_title[0] + "   " + splited_title[1] + "   " + splited_title[2], middle_word_position)
         return
 
 def create_title_for_post():
