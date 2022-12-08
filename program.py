@@ -104,8 +104,10 @@ def get_code_ready(image_path):
     new_image.convert('RGB')
     final_image =  add_margin(new_image, 25, 25, 25, 25, (255, 255, 255))
     final_image.save('code/ready/code-' + str(random.randint(0,100)) + ".png", quality=95)
+    print("Success!\n")
 
 def create_code_for_post():
     create_missing_folders()
     file_name = input("Enter the name of the file that is not ready to be posted: ")
+    file_name = file_name + ".png"
     get_code_ready("code/not-ready/" + str(file_name))

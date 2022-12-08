@@ -1,7 +1,6 @@
-from PIL import Image, ImageFont, ImageDraw
-from datetime import datetime
 from title import * 
 from program import *
+from time import sleep
 import shutil
 
 def clear():
@@ -17,5 +16,10 @@ def start():
         create_title_for_post()
     elif choice == 2:
         create_code_for_post()
+    else:
+        clear()
+        return
+    sleep(60)
+    clear()
 
 start()

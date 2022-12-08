@@ -2,7 +2,7 @@ from PIL import Image, ImageFont, ImageDraw
 from datetime import datetime
 import os 
 
-languages = ["c", "cpp", "cs", "go", "java", "javascript", "python", "tips"]
+languages = ["c", "corner", "cpp", "cs", "go", "java", "javascript", "python", "tips"]
 titles_path = "titles/"
 font_size = 100 # 55
 font_family = "Archive.otf"
@@ -66,3 +66,4 @@ def create_title_for_post():
             img = Image.open("languages/" + languages[i] + ".png")
             draw_title(img, title)
             img.save("titles/" + str(new_folder_name) + "/title-" + languages[i] + ".png")
+        print("Success!\n")
