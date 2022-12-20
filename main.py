@@ -1,6 +1,7 @@
 from title import * 
 from program import *
 from time import sleep
+import setup
 import shutil
 
 def clear():
@@ -10,6 +11,7 @@ def clear():
         shutil.rmtree('titles')
             
 def start():
+    setup.install_packages()
     clear()
     choice = int(input("\n1. Title\n2. Code\nEnter your choice: "))
     if choice == 1:
